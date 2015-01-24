@@ -7,7 +7,8 @@ public class PlayerUpdateLocation : MonoBehaviour {
 	public float moveSpeed;
 	public float turnSpeed;
 	private Vector3 moveDirection;
-	public GUIText pitaCounterText;
+
+	public GUIText pitaCounterText; //Pita textrual counter
 
 	private int pitaCounter;
 

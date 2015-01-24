@@ -5,6 +5,9 @@ public class EvemyScriipt : MonoBehaviour {
 	public float moveSpeed;
 	public float turnSpeed;
 	private Vector3 moveDirection;
+
+	public bool facingRight = false;
+
 	public float aggroRange;
 	public bool isAggro;
 
@@ -47,6 +50,26 @@ public class EvemyScriipt : MonoBehaviour {
 //			transform.rotation = 
 //				Quaternion.Slerp( transform.rotation, 
 //				                 Quaternion.Euler( 0, 0, targetAngle ), 
-//				                 turnSpeed * Time.deltaTime );				
+//				                 turnSpeed * Time.deltaTime );
+
+		if ((moveDirection.x > 0) && (facingRight)) {
+			Flip();
+			//spriteRenderer.transform.TransformDirection(new Vector3(-1,0,0));
+		}
+		if ((moveDirection.x < 0) && (!facingRight)) {
+			Flip();
+		}
+		else {
+			//animation.Stop();//TODO1
+		}
+	}
+
+	void Flip() {
+		facingRight = !facingRight;
+		
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+		
 	}
 }
