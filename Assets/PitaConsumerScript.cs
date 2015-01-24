@@ -25,6 +25,7 @@ public class PitaConsumerScript : MonoBehaviour {
 			{
 				ScoreBehavior.score+= target.pitaCounter;
 				target.depositAllPitas();
+				audio.Play();
 			}
 		}
 
