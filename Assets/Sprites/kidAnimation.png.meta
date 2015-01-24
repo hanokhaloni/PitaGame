@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: d246809efcd023b4ba1d6cda837687f0
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kidAnimation_0
+    21300002: kidAnimation_1
+    21300004: kidAnimation_2
+    21300006: kidAnimation_3
+    21300008: kidAnimation_4
+    21300010: kidAnimation_5
+    21300012: kidAnimation_6
+    21300014: kidAnimation_7
+    21300016: kidAnimation_8
+    21300018: kidAnimation_9
+    21300020: kidAnimation_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kidAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 0
+        width: 45
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 45
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 45
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 0
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
