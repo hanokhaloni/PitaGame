@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
 
 
 public class PlayerUpdateLocation : MonoBehaviour {
 	public float moveSpeed;
 	public float turnSpeed;
 	private Vector3 moveDirection;
-
+	private DateTime lastPitaTaken;
 
 	public int pitaCounter;
-
+	public int maxPitaCanBeHeld = 50;
+	public int mSecBetweenPitaPickups = 500;
 
 	//private Animator animator;
 	//private SpriteRenderer spriteRenderer; 
@@ -21,6 +22,7 @@ public class PlayerUpdateLocation : MonoBehaviour {
 	void Start () {
 		//spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
 		//animator = this.GetComponent<Animator>();
+		lastPitaTaken = DateTime.Now;
 	}
 	
 	// Update is called once per frame
@@ -30,23 +32,13 @@ public class PlayerUpdateLocation : MonoBehaviour {
 
 		if (Input.GetButton ("Fire1")) {
 			//animation.Play();//TODO1
-			// 3
 			Vector3 moveToward = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			// 4
 			moveDirection = moveToward - currentPosition;
 			moveDirection.z = 0; 
 			moveDirection.Normalize ();
-
 			Vector3 target = moveDirection * moveSpeed + currentPosition;
 			transform.position = Vector3.Lerp( currentPosition, target, Time.deltaTime );
 
-			//Debug.Log("click from ["+moveToward.ToString()+"] yielded to target ["+target.ToString()+"]");
-//			//handle rotation
-//			float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-//			transform.rotation = 
-//				Quaternion.Slerp( transform.rotation, 
-//				                 Quaternion.Euler( 0, 0, targetAngle ), 
-//				                 turnSpeed * Time.deltaTime );
 			if ((moveDirection.x > 0) && (facingRight)) {
 				Flip();
 				//spriteRenderer.transform.TransformDirection(new Vector3(-1,0,0));
@@ -75,16 +67,19 @@ public class PlayerUpdateLocation : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll){
 
 		decPitaCounter ();
-		EvemyScriipt.message = "reset";
+		EvemyScriipt.message = EvemyScriipt.CMDMESSAGE.GO_HOME_MSG;
 		//TODO play random collison sound
 	}
 
 
 
 	public void addPitaCounter() {
-		if (pitaCounter < 10)
-			pitaCounter++;
-		GUIUpdate.pitaCount = pitaCounter;
+		double timeSinceLastTake = DateTime.Now.Subtract (lastPitaTaken).TotalMilliseconds;
+		if (pitaCounter < maxPitaCanBeHeld && timeSinceLastTake > mSecBetweenPitaPickups) {
+						pitaCounter++;
+						GUIUpdate.pitaCount = pitaCounter;
+						lastPitaTaken = DateTime.Now;
+				}
 	}
 
 	public void decPitaCounter() {

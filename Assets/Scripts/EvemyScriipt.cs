@@ -11,7 +11,10 @@ public class EvemyScriipt : MonoBehaviour
 		public float aggroRange;
 		public bool isAggro;
 
-		public static string message="";
+		// messaging system
+	public enum CMDMESSAGE { GO_HOME_MSG,NONE };	
+	public static CMDMESSAGE message=CMDMESSAGE.NONE;
+		
 		//var target = PlayerUpdateLocation;
 		// Use this for initialization
 		void Start ()
@@ -66,24 +69,23 @@ public class EvemyScriipt : MonoBehaviour
 		}
 
 		private bool handleMessage()
-	{
-		bool actionDone = true;
-		switch(message)
 		{
-
-			case "reset": 
-			//Camera.main.ScreenToWorldPoint( Vector3(Screen.width/2, Screen.height/2, Camera.main.nearClipPlane) );
-			transform.position = new Vector3(-4,2,0);
-			break;
-		default:
-			actionDone = false;
-			break;
-
+			bool actionDone = true;
+			switch(message)
+			{
+				case CMDMESSAGE.GO_HOME_MSG: 
+					//Camera.main.ScreenToWorldPoint( Vector3(Screen.width/2, Screen.height/2, Camera.main.nearClipPlane) );
+					transform.position = new Vector3(-4,2,0);
+					break;
+				default:
+					actionDone = false;
+					break;
+			}
+			if (actionDone)
+				message = CMDMESSAGE.NONE;
+			return actionDone;
 		}
-		if (actionDone)
-			message = "";
-		return actionDone;
-	}
+
 		void Flip ()
 		{
 				facingRight = !facingRight;
