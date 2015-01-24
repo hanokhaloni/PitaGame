@@ -46,11 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PitaConsumerScript.cs" />
      <Compile Include="Assets\Scripts\EvemyScriipt.cs" />
      <Compile Include="Assets\Scripts\GUIUpdate.cs" />
      <Compile Include="Assets\Scripts\PitaStashScript.cs" />
      <Compile Include="Assets\Scripts\PlayerUpdateLocation.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
+     <Compile Include="Assets\Scripts\ScoreBehavior.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
