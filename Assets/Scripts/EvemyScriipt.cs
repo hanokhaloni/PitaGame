@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+//Feel free to sue me at hanokh.aloni@gmail.com for any naming complaints.
 public class EvemyScriipt : MonoBehaviour {
 	public float moveSpeed;
-	public float turnSpeed;
+	//public float turnSpeed;
 	private Vector3 moveDirection;
 
 	public bool facingRight = false;
@@ -32,7 +32,7 @@ public class EvemyScriipt : MonoBehaviour {
 			moveToward= playerLocation - currentPosition ;
 			Debug.Log("aggro");
 				} else {
-		    moveToward = Random.insideUnitSphere;
+		    moveToward = Random.insideUnitSphere;//TODO need to do something nicer here :)
 			Debug.Log ("Random mode");
 				}
 
