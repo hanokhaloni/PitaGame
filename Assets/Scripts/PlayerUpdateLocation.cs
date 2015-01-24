@@ -60,9 +60,6 @@ public class PlayerUpdateLocation : MonoBehaviour {
 			else {
 				//animation.Stop();//TODO1
 			}
-
-
-
 		}					
 	}
 
@@ -75,7 +72,6 @@ public class PlayerUpdateLocation : MonoBehaviour {
 
 	// camel touches pita boy
 	void OnCollisionEnter2D(Collision2D coll){
-		Debug.Log("coll.gameObject.name:"+coll.gameObject.name);
 		decPitaCounter ();
 		EvemyScriipt.message = EvemyScriipt.CMDMESSAGE.GO_HOME_MSG;
 		//TODO play random collison sound
@@ -100,6 +96,13 @@ public class PlayerUpdateLocation : MonoBehaviour {
 						audioPitaStolen.Play();
 				}
 
+	}
+
+	public void depositAllPitas()
+	{
+		pitaCounter = 0;
+		GUIUpdate.pitaCount = pitaCounter;
+		
 	}
 
 }

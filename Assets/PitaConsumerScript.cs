@@ -23,8 +23,8 @@ public class PitaConsumerScript : MonoBehaviour {
 		if (isAggro) {
 			if (target.pitaCounter > 0)
 			{
-				target.decPitaCounter (); // WTF - never called !
-				ScoreBehavior.score ++;
+				ScoreBehavior.score+= target.pitaCounter;
+				target.depositAllPitas();
 			}
 		}
 

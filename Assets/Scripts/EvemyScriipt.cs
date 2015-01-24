@@ -14,6 +14,7 @@ public class EvemyScriipt : MonoBehaviour
 	public float aggroRange;
 	public bool isAggro;
 	private DateTime lastChangeDirTime; // last time enemy changed right/left direction
+	public int mSecAllowedBetweenDirectionChanges = 2000;
 
 	// messaging system
 	public enum CMDMESSAGE { GO_HOME_MSG,NONE };	
@@ -30,7 +31,7 @@ public class EvemyScriipt : MonoBehaviour
 	void Update ()
 	{
 			if (handleMessage ())
-				return;
+					return;
 			Vector3 currentPosition = transform.position;
 			var playerObject = GameObject.Find ("Player");
 			Vector3 playerLocation = playerObject.transform.position;
@@ -38,37 +39,41 @@ public class EvemyScriipt : MonoBehaviour
 			isAggro = distance < (aggroRange * GUIUpdate.pitaCount);
 
 			if (isAggro) { 
-				moveDirection = playerLocation - currentPosition;
+					moveDirection = playerLocation - currentPosition;
 					//Debug.Log("aggro");
 			} else {
-				moveDirection += UnityEngine.Random.insideUnitSphere;//TODO need to do something nicer here :)
+					moveDirection += UnityEngine.Random.insideUnitSphere;//TODO need to do something nicer here :)
 					//Debug.Log ("Random mode");
 			}
 
 			// 4
 			moveDirection.z = 0; 
 			moveDirection.Normalize ();
-		
+	
 			Vector3 target = moveDirection * moveSpeed + currentPosition;
 			
-			
+		
 			bool shouldFlip = false;
 
 			if ((moveDirection.x > 0) && (facingRight))
-						shouldFlip = true;
+					shouldFlip = true;
 			else if ((moveDirection.x < 0) && (!facingRight)) 
-						shouldFlip = true;
+					shouldFlip = true;
 			// else 
-				//animation.Stop();//TODO1
+			//animation.Stop();//TODO1
 
-		// camel should not change direction too many times in 1 second
-		//if (DateTime.Now.Subtract(lastChangeDirTime).TotalMilliseconds > 1000) 	
-		//{
-		    if (shouldFlip)
-				Flip();
-			transform.position = Vector3.Lerp (currentPosition, target, Time.deltaTime);
+				if (shouldFlip)
+						Flip ();
+			transform.position = Vector3.Lerp (currentPosition, target, Time.deltaTime);	
+
 		}
 
+		private bool camelHasChangedDirLately()
+		{
+		return (DateTime.Now.Subtract (lastChangeDirTime).TotalMilliseconds < mSecAllowedBetweenDirectionChanges);
+		}
+
+		// return true if you don't want to do all the rest of the update() logic
 		private bool handleMessage()
 		{
 			bool actionDone = true;
@@ -89,11 +94,12 @@ public class EvemyScriipt : MonoBehaviour
 
 		void Flip ()
 		{
-				facingRight = !facingRight;
-		
-				Vector3 theScale = transform.localScale;
-				theScale.x *= -1;
-				transform.localScale = theScale;
+			facingRight = !facingRight;
+	
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
+			lastChangeDirTime = DateTime.Now;
 		
 		}
 }
