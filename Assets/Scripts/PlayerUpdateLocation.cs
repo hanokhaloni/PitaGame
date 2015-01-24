@@ -12,6 +12,7 @@ public class PlayerUpdateLocation : MonoBehaviour {
 	public int pitaCounter;
 	public int maxPitaCanBeHeld = 50;
 	public int mSecBetweenPitaPickups = 500;
+	public int requiredPitas = 100;
 
 	//private Animator animator;
 	//private SpriteRenderer spriteRenderer; 
@@ -87,6 +88,7 @@ public class PlayerUpdateLocation : MonoBehaviour {
 						lastPitaTaken = DateTime.Now;
 						audioPitaCollected.Play();
 				}
+
 	}
 
 	public void decPitaCounter() {
@@ -102,7 +104,8 @@ public class PlayerUpdateLocation : MonoBehaviour {
 	{
 		pitaCounter = 0;
 		GUIUpdate.pitaCount = pitaCounter;
-		
+		if (ScoreBehavior.score >= requiredPitas)
+			Application.LoadLevel ("YouWin");
 	}
 
 }
