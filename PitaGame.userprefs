@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EvemyScriipt.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUIUpdate.cs">
     <Files>
-      <File FileName="Assets\Scripts\EvemyScriipt.cs" Line="35" Column="85" />
-      <File FileName="Assets\Scripts\Score.cs" Line="25" Column="3" />
+      <File FileName="Assets\Scripts\GUIUpdate.cs" Line="3" Column="22" />
+      <File FileName="Assets\Scripts\PlayerUpdateLocation.cs" Line="49" Column="21" />
+      <File FileName="Assets\Scripts\EvemyScriipt.cs" Line="33" Column="6" />
+      <File FileName="Assets\Scripts\Score.cs" Line="9" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

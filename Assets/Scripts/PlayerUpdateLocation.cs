@@ -8,12 +8,11 @@ public class PlayerUpdateLocation : MonoBehaviour {
 	public float turnSpeed;
 	private Vector3 moveDirection;
 
-	public GUIText pitaCounterText; //Pita textrual counter
 
-	private int pitaCounter;
+	public int pitaCounter;
 
 
-	private Animator animator;
+	//private Animator animator;
 	//private SpriteRenderer spriteRenderer; 
 
 	public bool facingRight = false;
@@ -74,28 +73,23 @@ public class PlayerUpdateLocation : MonoBehaviour {
 		}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		Debug.Log ("Collision detected");
-//		if(coll.gameObject.tag=="enemy")
-//		{
-//			GameObject.Destroy("player");
-//		}
+
+		decPitaCounter ();
+		//TODO play random collison sound
 	}
 
-	void setPitaCounter(int newPitaCounter) {
-		pitaCounter = newPitaCounter;
 
-		pitaCounterText.text = pitaCounter.ToString ();
-
-	}
 
 	public void addPitaCounter() {
 		if (pitaCounter < 10)
-			setPitaCounter (pitaCounter ++);
+			pitaCounter++;
+		GUIUpdate.pitaCount = pitaCounter;
 	}
 
 	public void decPitaCounter() {
 		if (pitaCounter > 0)
-			setPitaCounter (pitaCounter --);
+			pitaCounter--;
+		GUIUpdate.pitaCount = pitaCounter;
 	}
 
 }
