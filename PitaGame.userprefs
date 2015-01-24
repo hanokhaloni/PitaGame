@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Score.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerUpdateLocation.cs">
     <Files>
-      <File FileName="Assets\Scripts\EvemyScriipt.cs" Line="97" Column="4" />
-      <File FileName="Assets\PitaConsumerScript.cs" Line="20" Column="71" />
-      <File FileName="Assets\Scripts\Score.cs" Line="42" Column="13" />
-      <File FileName="Assets\Scripts\ScoreBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerUpdateLocation.cs" Line="96" Column="7" />
+      <File FileName="Assets\Scripts\EvemyScriipt.cs" Line="99" Column="1" />
+      <File FileName="Assets\Scripts\PitaStashScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\PitaConsumerScript.cs" Line="26" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
