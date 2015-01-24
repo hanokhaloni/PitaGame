@@ -1,2 +1,6 @@
 Assets/pitaCollect.ogg.meta
 Assets/pitaStolen.ogg.meta
+*.dll
+*.dll
+Library/ScriptAssemblies/Assembly-CSharp.dll
+*.mdb
