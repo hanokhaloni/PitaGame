@@ -1,7 +1,18 @@
 fileFormatVersion: 2
 guid: 7a3133f57f1975b498a9fe7216da4f3b
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: kid_0
+    21300002: kid_1
+    21300004: kid_2
+    21300006: kid_3
+    21300008: kid_4
+    21300010: kid_5
+    21300012: kid_6
+    21300014: kid_7
+    21300016: kid_8
+    21300018: kid_9
+    21300020: kid_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,7 +38,7 @@ TextureImporter:
     filterMode: -1
     aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -42,6 +53,116 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: kid_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 0
+        width: 45
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 45
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 45
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_7
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 0
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_8
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_9
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kid_10
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 0
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
