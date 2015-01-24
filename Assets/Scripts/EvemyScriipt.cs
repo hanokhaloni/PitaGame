@@ -2,70 +2,71 @@
 using System.Collections;
 
 //Feel free to sue me at hanokh.aloni@gmail.com for any naming complaints.
+using System;
+
+
 public class EvemyScriipt : MonoBehaviour
 {
-		public float moveSpeed;
-		//public float turnSpeed;
-		private Vector3 moveDirection;
-		public bool facingRight = false;
-		public float aggroRange;
-		public bool isAggro;
+	public float moveSpeed;
+	//public float turnSpeed;
+	private Vector3 moveDirection;
+	public bool facingRight = false;
+	public float aggroRange;
+	public bool isAggro;
+	private DateTime lastChangeDirTime; // last time enemy changed right/left direction
 
-		// messaging system
+	// messaging system
 	public enum CMDMESSAGE { GO_HOME_MSG,NONE };	
 	public static CMDMESSAGE message=CMDMESSAGE.NONE;
+	
+	//var target = PlayerUpdateLocation;
+	// Use this for initialization
+	void Start ()
+	{
+		lastChangeDirTime = DateTime.Now;
+	}
+	
+	// Update is called once per frame
+	void Update ()
+	{
+			if (handleMessage ())
+				return;
+			Vector3 currentPosition = transform.position;
+			var playerObject = GameObject.Find ("Player");
+			Vector3 playerLocation = playerObject.transform.position;
+			float distance = Vector3.Distance (currentPosition, playerLocation);
+			isAggro = distance < (aggroRange * GUIUpdate.pitaCount);
+
+			if (isAggro) { 
+				moveDirection = playerLocation - currentPosition;
+					//Debug.Log("aggro");
+			} else {
+				moveDirection += UnityEngine.Random.insideUnitSphere;//TODO need to do something nicer here :)
+					//Debug.Log ("Random mode");
+			}
+
+			// 4
+			moveDirection.z = 0; 
+			moveDirection.Normalize ();
 		
-		//var target = PlayerUpdateLocation;
-		// Use this for initialization
-		void Start ()
-		{
-	
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-				if (handleMessage ())
-					return;
-				Vector3 currentPosition = transform.position;
-				// 2
-				// 3
-				var playerObject = GameObject.Find ("Player");
-				Vector3 playerLocation = playerObject.transform.position;
-				float distance = Vector3.Distance (currentPosition, playerLocation);
-				isAggro = distance < (aggroRange * GUIUpdate.pitaCount);
-
-				if (isAggro) { 
-					moveDirection = playerLocation - currentPosition;
-						//Debug.Log("aggro");
-				} else {
-					moveDirection += Random.insideUnitSphere;//TODO need to do something nicer here :)
-						//Debug.Log ("Random mode");
-				}
-
-				// 4
-				moveDirection.z = 0; 
-				moveDirection.Normalize ();
+			Vector3 target = moveDirection * moveSpeed + currentPosition;
 			
-				Vector3 target = moveDirection * moveSpeed + currentPosition;
-				transform.position = Vector3.Lerp (currentPosition, target, Time.deltaTime);
 			
-				//Debug.Log("click from ["+moveToward.ToString()+"] yielded to target ["+target.ToString()+"]");
-				//handle rotation
-//			float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-//			transform.rotation = 
-//				Quaternion.Slerp( transform.rotation, 
-//				                 Quaternion.Euler( 0, 0, targetAngle ), 
-//				                 turnSpeed * Time.deltaTime );
+			bool shouldFlip = false;
 
-				if ((moveDirection.x > 0) && (facingRight)) {
-						Flip ();
-						//spriteRenderer.transform.TransformDirection(new Vector3(-1,0,0));
-				} else if ((moveDirection.x < 0) && (!facingRight)) {
-						Flip ();
-				} else {
-						//animation.Stop();//TODO1
-				}
+			if ((moveDirection.x > 0) && (facingRight))
+						shouldFlip = true;
+			else if ((moveDirection.x < 0) && (!facingRight)) 
+						shouldFlip = true;
+			// else 
+				//animation.Stop();//TODO1
+
+		// camel should not change direction too many times in 1 second
+		//if (DateTime.Now.Subtract(lastChangeDirTime).TotalMilliseconds > 1000) 	
+		//{
+		    if (shouldFlip)
+				Flip();
+			transform.position = Vector3.Lerp (currentPosition, target, Time.deltaTime);
 		}
 
 		private bool handleMessage()

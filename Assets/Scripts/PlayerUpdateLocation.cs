@@ -43,13 +43,18 @@ public class PlayerUpdateLocation : MonoBehaviour {
 			moveDirection.z = 0; 
 			moveDirection.Normalize ();
 			Vector3 target = moveDirection * moveSpeed + currentPosition;
+
+
+
+
 			transform.position = Vector3.Lerp( currentPosition, target, Time.deltaTime );
 
-			if ((moveDirection.x > 0) && (facingRight)) {
+
+			if ((moveDirection.x > 0) && (!facingRight)) {
 				Flip();
 				//spriteRenderer.transform.TransformDirection(new Vector3(-1,0,0));
 			}
-			if ((moveDirection.x < 0) && (!facingRight)) {
+			if ((moveDirection.x < 0) && (facingRight)) {
 				Flip();
 			}
 			else {
@@ -63,15 +68,14 @@ public class PlayerUpdateLocation : MonoBehaviour {
 
 	void Flip() {
 		facingRight = !facingRight;
-
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
-
 		}
 
+	// camel touches pita boy
 	void OnCollisionEnter2D(Collision2D coll){
-
+		Debug.Log("coll.gameObject.name:"+coll.gameObject.name);
 		decPitaCounter ();
 		EvemyScriipt.message = EvemyScriipt.CMDMESSAGE.GO_HOME_MSG;
 		//TODO play random collison sound
