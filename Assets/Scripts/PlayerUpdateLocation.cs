@@ -18,11 +18,17 @@ public class PlayerUpdateLocation : MonoBehaviour {
 
 	public bool facingRight = false;
 
+	private AudioSource audioPitaCollected;
+	private AudioSource audioPitaStolen;
+
 	// Use this for initialization
 	void Start () {
 		//spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
 		//animator = this.GetComponent<Animator>();
 		lastPitaTaken = DateTime.Now;
+		AudioSource[] sounds = GetComponents<AudioSource> ();
+		audioPitaCollected = sounds[0];
+		audioPitaStolen = sounds[1];
 	}
 	
 	// Update is called once per frame
@@ -79,13 +85,16 @@ public class PlayerUpdateLocation : MonoBehaviour {
 						pitaCounter++;
 						GUIUpdate.pitaCount = pitaCounter;
 						lastPitaTaken = DateTime.Now;
+						audioPitaCollected.Play();
 				}
 	}
 
 	public void decPitaCounter() {
-		if (pitaCounter > 0)
-			pitaCounter--;
-		GUIUpdate.pitaCount = pitaCounter;
+		if (pitaCounter > 0) {
+						pitaCounter--;
+						GUIUpdate.pitaCount = pitaCounter;
+						audioPitaStolen.Play();
+				}
 
 	}
 
