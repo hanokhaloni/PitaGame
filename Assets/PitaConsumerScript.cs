@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PitaConsumerScript : MonoBehaviour {
@@ -30,4 +30,13 @@ public class PitaConsumerScript : MonoBehaviour {
 
 		
 	}
+
+	void OnTriggerEnter2d(Collider2D otherColider) {
+		//animation.Play (1);
+	}
+
+	void  OnTriggerExit2D(Collider2D otherColider) {
+		//animation.Play (-1);
+	}
+
 }
