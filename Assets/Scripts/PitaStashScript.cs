@@ -18,7 +18,6 @@ public class PitaStashScript : MonoBehaviour {
 
 		Vector3 playerLocation = target.transform.position;
 		float distance = Vector3.Distance (currentPosition, playerLocation);
-		Vector3 moveToward;
 		isAggro = distance < aggroRange;
 		
 		if (isAggro) 
