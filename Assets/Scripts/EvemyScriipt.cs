@@ -11,6 +11,7 @@ public class EvemyScriipt : MonoBehaviour
 		public float aggroRange;
 		public bool isAggro;
 
+		public static string message="";
 		//var target = PlayerUpdateLocation;
 		// Use this for initialization
 		void Start ()
@@ -21,6 +22,8 @@ public class EvemyScriipt : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+				if (handleMessage ())
+					return;
 				Vector3 currentPosition = transform.position;
 				// 2
 				// 3
@@ -62,6 +65,25 @@ public class EvemyScriipt : MonoBehaviour
 				}
 		}
 
+		private bool handleMessage()
+	{
+		bool actionDone = true;
+		switch(message)
+		{
+
+			case "reset": 
+			//Camera.main.ScreenToWorldPoint( Vector3(Screen.width/2, Screen.height/2, Camera.main.nearClipPlane) );
+			transform.position = new Vector3(-4,2,0);
+			break;
+		default:
+			actionDone = false;
+			break;
+
+		}
+		if (actionDone)
+			message = "";
+		return actionDone;
+	}
 		void Flip ()
 		{
 				facingRight = !facingRight;

@@ -75,6 +75,7 @@ public class PlayerUpdateLocation : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll){
 
 		decPitaCounter ();
+		EvemyScriipt.message = "reset";
 		//TODO play random collison sound
 	}
 
@@ -90,6 +91,7 @@ public class PlayerUpdateLocation : MonoBehaviour {
 		if (pitaCounter > 0)
 			pitaCounter--;
 		GUIUpdate.pitaCount = pitaCounter;
+
 	}
 
 }
