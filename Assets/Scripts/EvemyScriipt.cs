@@ -33,7 +33,7 @@ public class EvemyScriipt : MonoBehaviour
 					moveDirection = playerLocation - currentPosition;
 						//Debug.Log("aggro");
 				} else {
-					moveDirection = Random.insideUnitSphere;//TODO need to do something nicer here :)
+					moveDirection += Random.insideUnitSphere;//TODO need to do something nicer here :)
 						//Debug.Log ("Random mode");
 				}
 
